@@ -32,10 +32,8 @@ module.exports = {
 
     port: 3050,
 
-    // Setting host to 0.0.0.0 makes the server public
     host: '0.0.0.0',
 
-    // Serve index.html on 404 (see docs for detail)
     historyApiFallback: true,
 
     allowedHosts: 'all',

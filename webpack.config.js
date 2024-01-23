@@ -6,7 +6,6 @@ const rootPath = path.resolve(__dirname, './')
 const srcPath = path.resolve(__dirname, './src')
 
 module.exports = {
-  // Tell webpack where to start the bundling process
   entry: {
     app: srcPath + '/index.tsx',
   },
@@ -14,9 +13,6 @@ module.exports = {
   resolve: {
     modules: [srcPath, 'node_modules'],
     extensions: ['.ts', '.tsx', '.js', '.json', '.mjs'],
-    // alias: {
-    //   d3: 'd3/dist/d3.js', // or the path to your d3.min.js file if using a minified version
-    // },
   },
 
   output: {
@@ -25,7 +21,6 @@ module.exports = {
     publicPath: '/',
   },
 
-  // Note: Do not use optimization in dev
   optimization: {
     // https://webpack.js.org/plugins/split-chunks-plugin/
     splitChunks: {
@@ -72,7 +67,6 @@ module.exports = {
         include: srcPath,
         use: [
           {
-            // Moves css into <style> tags in <head>
             // https://github.com/webpack-contrib/style-loader
             loader: require.resolve('style-loader'),
           },
@@ -91,16 +85,9 @@ module.exports = {
             // https://github.com/webpack-contrib/css-loader
             loader: 'css-loader',
             options: {
-              // According to
-              // https://github.com/postcss/postcss-loader#css-modules
-              // https://github.com/webpack-contrib/css-loader#importloaders
-              // you need importLoaders to make CSS modules work with PostCSS.
-              // From testing that does not seem to be true.
-              // importLoaders: 2,
-
               // Create CSS modules
               modules: {
-                exportLocalsConvention: 'camelCaseOnly', // Updated property
+                exportLocalsConvention: 'camelCaseOnly',
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
               },
             },
@@ -110,8 +97,8 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
-                  require('autoprefixer'), // Updated property
-                  require('cssnano'), // Updated property
+                  require('autoprefixer'),
+                  require('cssnano'),
                 ],
               },
             },
@@ -140,8 +127,5 @@ module.exports = {
   },
   plugins: [
     new EnvironmentPlugin({ ...process.env }),
-    new webpack.ProvidePlugin({
-      d3: 'd3',
-    }),
   ],
 }
