@@ -1,24 +1,30 @@
-import React from 'react';
-import './App.scss';
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import React from "react";
+import "./App.scss";
 
-function App() {
+const App = () => {
+  const theme = createTheme({
+    palette: {
+      mode: "dark",
+      background: {
+        default: "#303030",
+        paper: "#383838",
+      },
+      primary: {
+        main: "#f2800a",
+      },
+      secondary: {
+        main: "#f2800a",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reloadd.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
