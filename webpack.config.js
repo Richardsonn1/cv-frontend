@@ -96,10 +96,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  require('autoprefixer'),
-                  require('cssnano'),
-                ],
+                plugins: [require('autoprefixer'), require('cssnano')],
               },
             },
           },
@@ -127,5 +124,8 @@ module.exports = {
   },
   plugins: [
     new EnvironmentPlugin({ ...process.env }),
+    new webpack.DefinePlugin({
+      process: { env: {} },
+    }),
   ],
 }
