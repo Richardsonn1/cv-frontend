@@ -10,6 +10,7 @@ import { setContext } from '@apollo/client/link/context'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 import './App.scss'
 import Landing from './Components/Landing/Landing'
+import Navbar from './Components/Navbar/Navbar'
 
 export const config: {
   graphQlUri: string
@@ -61,6 +62,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={graphqlClient}>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Landing />} />
         </Routes>
