@@ -78,32 +78,24 @@ const Navbar = () => {
 
   return (
     <Box>
-      <AppBar
-        component="nav"
-        sx={{
-          backgroundColor: 'transparent',
-          borderBottom: 'black 1px solid',
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={toggleDrawer}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <Menu />
-          </IconButton>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item, index) => (
-              <Button key={index} onClick={() => handleClick(item.linkPath)}>
-                {item.title}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={toggleDrawer}
+          sx={{ mr: 2, display: { sm: 'none' } }}
+        >
+          <Menu />
+        </IconButton>
+        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          {navItems.map((item, index) => (
+            <Button key={index} onClick={() => handleClick(item.linkPath)}>
+              {item.title}
+            </Button>
+          ))}
+        </Box>
+      </Toolbar>
       <Box component="nav">
         <Drawer
           variant="temporary"

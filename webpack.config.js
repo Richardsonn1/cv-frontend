@@ -125,7 +125,7 @@ module.exports = {
   plugins: [
     // new EnvironmentPlugin({ ...process.env }),
     new webpack.DefinePlugin({
-      process: { env: { ...process.env } },
+      process: { env: {  } },
     }),
   ],
 }

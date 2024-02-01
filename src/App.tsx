@@ -50,7 +50,7 @@ const App = () => {
         paper: '#383838',
       },
       primary: {
-        main: '#f2800a',
+        main: '#FFF',
       },
       secondary: {
         main: '#f2800a',
