@@ -88,7 +88,13 @@ const Navbar = () => {
         >
           <Menu />
         </IconButton>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box
+          sx={{
+            display: { xs: 'none', sm: 'flex' },
+            width: { sm: '100%' },
+            justifyContent: { sm: 'center' },
+          }}
+        >
           {navItems.map((item, index) => (
             <Button key={index} onClick={() => handleClick(item.linkPath)}>
               {item.title}
